@@ -1,10 +1,19 @@
 ## Description
 This work is to reproduce S³FD, a real-time Single Shot Scale-invariant Face Detector.
-![](tools/out.png)
+![](demo.png)
 
 ## Environment
-* mxnet 1.3.0
-* gluon-cv 0.4.0
+* [mxnet](https://github.com/apache/incubator-mxnet) 1.3.0
+* [gluon-cv](https://github.com/dmlc/gluon-cv) 0.4.0
+* [MobulaOP](https://github.com/wkcn/MobulaOP) required to build custom c++ operator
+
+## Preparation
+
+```
+# install MobulaOP following: https://github.com/wkcn/MobulaOP
+$$ git clone https://github.com/yangfly/sfd.gluoncv.git
+$$ cd sfd.gluoncv
+```
 
 ## Training your own model
 1. download [wider face](http://mmlab.ie.cuhk.edu.hk/projects/WIDERFace/) dataset into `widerface/downloads/`
@@ -43,14 +52,14 @@ This work is to reproduce S³FD, a real-time Single Shot Scale-invariant Face De
     ```
 4. train vgg16 based sfd
     ```
-    $$python sfd/train.py --network vgg16 --save-prefix models/vgg16/
+    $$ python sfd/train.py --network vgg16 --save-prefix models/vgg16/
     ```
     more supported base models in `sfd/nn/sfd.py`
 5. demo
     ```
-    $$python sfd/demo.py --model models/vgg16/sfd_best.params
+    $$ python sfd/demo.py --model models/vgg16/sfd_best.params
     ```
 6. eval on WIDER_val
     ```
-    $$python sfd/val.py --model models/vgg16/sfd_best.params
+    $$ python sfd/val.py --model models/vgg16/sfd_best.params
     ```
