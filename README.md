@@ -61,5 +61,5 @@ $$ cd sfd.gluoncv
     ```
 6. eval on WIDER_val
     ```
-    $$ python sfd/val.py --model models/vgg16/sfd_best.params
+    $$ python sfd/eval.py --model models/vgg16/sfd_best.params
     ```
