@@ -34,7 +34,7 @@ def test():
     print(match1)
     mious = mx.nd.array([ious], dtype=np.float32)
     mgtids = mx.nd.array([gtids], dtype=np.int32)
-    match2 = mx.nd.empty_like(mious)
+    match2 = mx.nd.zeros_like(mious)
     mobula.func.compensate(1, mgtids, mious, match2, len(gtids), 5, 0.35, 0.1, 2)
     print(match2[0])
 

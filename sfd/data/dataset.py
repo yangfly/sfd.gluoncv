@@ -106,9 +106,9 @@ class WiderDetection(dataset.Dataset):
                             if self._ignore_face(attr):
                                 continue
                         if len(annos) == 7:
-                            annos = bbox_xywh_to_xyxy(map(float, annos[:4])) + tuple(annos[4:])
+                            annos = bbox_xywh_to_xyxy(list(map(float, annos[:4])) + tuple(annos[4:]))
                         else:
-                            annos = bbox_xywh_to_xyxy(map(float, annos[:4]))
+                            annos = bbox_xywh_to_xyxy(list(map(float, annos[:4])))
                         label.append(annos)
                     if len(label) > 0 or not self._skip_empty:
                         items.append(os.path.join(img_root, img_path))

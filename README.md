@@ -50,9 +50,9 @@ $$ cd sfd.gluoncv
     ├── WIDER_train
     └── WIDER_val
     ```
-4. train vgg16 based sfd
+4. train vgg16 based sfd with 4 gpus
     ```
-    $$ python sfd/train.py --network vgg16 --save-prefix models/vgg16/
+    $$ python sfd/train.py
     ```
     more supported base models in `sfd/nn/sfd.py`
 5. demo

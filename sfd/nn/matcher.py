@@ -26,7 +26,7 @@ class CompensateMatcher(gluon.HybridBlock):
     def forward(self, x):
         gtids = x.argmax(axis=-1).astype(np.int32)
         ious = x.pick(gtids, axis=-1)
-        match = mx.nd.empty_like(ious)
+        match = mx.nd.zeros_like(ious)
         mobula.func.compensate(x.shape[0], gtids, ious, match,
                                x.shape[1], x.shape[2],
                                self._thre1, self._thre2, self._topk)
